@@ -44,3 +44,6 @@ In `Post Response`, the operator can be one of the following:
 - `isNumber`
 - `isBoolean`
 - `hasLength`
+
+<img width="1728" alt="validations" src="https://github.com/user-attachments/assets/27c72221-25a9-48fe-a351-fb1f5e04fc3c">
+
