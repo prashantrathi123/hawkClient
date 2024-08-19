@@ -1,6 +1,7 @@
 
-#![hawklogo512](https://github.com/user-attachments/assets/0c8b71bf-4a7e-4883-819a-859e78cb3905)
- hawkClient
+![hawklogo512](https://github.com/user-attachments/assets/f2f68d14-9839-4726-940a-e3c155b8cb67)
+
+#hawkClient
 hawkClient is a powerful tool designed to test APIs and manage collections and requests with ease. It stores the collections and requests as JSON files on your local file system, making it convenient to organize, reuse, and share your API tests.
 
 - **Mock Server**: Create and run a mock server to simulate API responses without relying on live endpoints (by default it will run on localhost:3001 if that port is occupied it will try ports till 3010).
