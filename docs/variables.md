@@ -16,3 +16,4 @@ In `Post Response`, the value has access to the `Response` object. The available
 - `response.status`
 - `response.statusText`
 - `response.headers`
+<img width="1728" alt="variables" src="https://github.com/user-attachments/assets/637880e9-6805-402c-8474-dcc453d4faaa">
