@@ -30,6 +30,9 @@ hc.test("should match expected value", () => {
   expect(body.value[0].name).to.equal("ram");
 });
 ```
+<img width="1728" alt="test-script" src="https://github.com/user-attachments/assets/8d8b57d0-bb1d-4855-9535-5260000598f3">
+
+<img width="1171" alt="Screenshot 2024-08-19 at 7 49 43 PM" src="https://github.com/user-attachments/assets/857a3320-2eef-4fbf-8a66-ca1e98419960">
 
 ### Node Modules
 node_modules available by default for both pre request and post response script
