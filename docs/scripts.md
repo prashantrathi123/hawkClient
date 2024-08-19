@@ -41,4 +41,4 @@ node_modules available by default for both pre request and post response script
 - https
 - url
 
-node modlues can be imported in script from collection path if installed in collection folder and have package.json file
+node modlues can be imported in script from collection path if installed in collection folder and have package.json file.
