@@ -1,3 +1,6 @@
+
+<img src="https://github.com/user-attachments/assets/d9ba3ba5-6d2d-4363-8593-0fb34565e15d" alt="hawklogo512" width="200">
+
 # hawkClient
 hawkClient is a powerful tool designed to test APIs and manage collections and requests with ease. It stores the collections and requests as JSON files on your local file system, making it convenient to organize, reuse, and share your API tests.
 
