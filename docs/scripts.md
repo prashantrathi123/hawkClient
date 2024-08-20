@@ -38,12 +38,11 @@ hc.test("should match expected value", () => {
 
 #### Write a script using inbuilt file explorer that can be import in request/Collection pre or post request/collection script
 
-<img width="1728" alt="file-explorer" src="https://github.com/user-attachments/assets/ffd210dd-51ca-4904-a20a-298158dae2ee">
+<img width="1728" alt="file explorer" src="https://github.com/user-attachments/assets/332ed756-19ec-4199-b6d8-512201087e26">
 
 #### Import the script in reques/collection as shown below
 
-<img width="1728" alt="execute script" src="https://github.com/user-attachments/assets/813ff3c0-56ed-4054-b4cf-be46b60cbeb7">
-
+<img width="1728" alt="script result" src="https://github.com/user-attachments/assets/17ecf64c-93c6-42c2-8f1b-6c113eb5b478">
 
 ### Node Modules
 node_modules available by default for both pre request and post response script
