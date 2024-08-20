@@ -32,6 +32,7 @@ hc.test("should match expected value", () => {
 ```
 <img width="1728" alt="test-script" src="https://github.com/user-attachments/assets/8d8b57d0-bb1d-4855-9535-5260000598f3">
 
+#### Response Body
 <img width="1171" alt="Screenshot 2024-08-19 at 7 49 43 PM" src="https://github.com/user-attachments/assets/857a3320-2eef-4fbf-8a66-ca1e98419960">
 
 ### Example for Script Import and File Explorer
@@ -58,5 +59,5 @@ Some node_modules are available by default for both pre and post request/collect
 
 <img width="1728" alt="axios call" src="https://github.com/user-attachments/assets/191bf6e1-2f47-46f9-948e-e90056cc09d5">
 
-
-Externalt node modlues can be imported in script from collection path if installed in collection folder and have package.json file.
+#### External node modlues
+External node modlues can be imported in script from collection path if installed in collection folder and have package.json file.
