@@ -36,16 +36,16 @@ hc.test("should match expected value", () => {
 
 ### Example for Script Import and File Explorer
 
-#### Write a script using inbuilt file explorer that can be import in request/Collection pre or post request/collection script
+#### Write a script using inbuilt file explorer that can be imported in pre or post request/collection script
 
 <img width="1728" alt="file explorer" src="https://github.com/user-attachments/assets/332ed756-19ec-4199-b6d8-512201087e26">
 
-#### Import the script in reques/collection as shown below
+#### Import the script in request/collection as shown below
 
 <img width="1728" alt="script result" src="https://github.com/user-attachments/assets/17ecf64c-93c6-42c2-8f1b-6c113eb5b478">
 
 ### Node Modules
-node_modules available by default for both pre request and post response script
+Some node_modules are available by default for both pre and post request/collection script and can be accessed in script directly.
 - axios
 - lodash
 - chai
@@ -54,4 +54,9 @@ node_modules available by default for both pre request and post response script
 - https
 - url
 
-externalt node modlues can be imported in script from collection path if installed in collection folder and have package.json file.
+#### Axios call example in script
+
+<img width="1728" alt="axios call" src="https://github.com/user-attachments/assets/191bf6e1-2f47-46f9-948e-e90056cc09d5">
+
+
+Externalt node modlues can be imported in script from collection path if installed in collection folder and have package.json file.
