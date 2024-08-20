@@ -59,5 +59,5 @@ Some node_modules are available by default for both pre and post request/collect
 
 <img width="1728" alt="axios call" src="https://github.com/user-attachments/assets/191bf6e1-2f47-46f9-948e-e90056cc09d5">
 
-#### External node modlues
-External node modlues can be imported in script from collection path if installed in collection folder and have package.json file.
+#### External node modules
+External node modules can be imported in script from collection path if installed in collection folder and have package.json file.
