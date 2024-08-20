@@ -34,6 +34,17 @@ hc.test("should match expected value", () => {
 
 <img width="1171" alt="Screenshot 2024-08-19 at 7 49 43 PM" src="https://github.com/user-attachments/assets/857a3320-2eef-4fbf-8a66-ca1e98419960">
 
+### Example for Script Import and File Explorer
+
+#### Write a script using inbuilt file explorer that can be import in request/Collection pre or post request/collection script
+
+<img width="1728" alt="file-explorer" src="https://github.com/user-attachments/assets/ffd210dd-51ca-4904-a20a-298158dae2ee">
+
+#### Import the script in reques/collection as shown below
+
+<img width="1728" alt="execute script" src="https://github.com/user-attachments/assets/813ff3c0-56ed-4054-b4cf-be46b60cbeb7">
+
+
 ### Node Modules
 node_modules available by default for both pre request and post response script
 - axios
@@ -44,4 +55,4 @@ node_modules available by default for both pre request and post response script
 - https
 - url
 
-node modlues can be imported in script from collection path if installed in collection folder and have package.json file.
+externalt node modlues can be imported in script from collection path if installed in collection folder and have package.json file.
