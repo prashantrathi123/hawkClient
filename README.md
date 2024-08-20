@@ -21,3 +21,13 @@ hawkClient is a powerful tool designed to test APIs and manage collections and r
 
 # hawkClient dark-theme
 <img width="1728" alt="hawkClient dark" src="https://github.com/user-attachments/assets/e56e8442-e3c5-4882-b41c-129e3e4e5c01">
+
+## Installing The App
+
+| OS      | File          |
+|---------|---------------|
+| Linux | [hawkClient-1.0.1-arm64-linux.AppImage](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-arm64-linux.AppImage)  |
+| Windows   | [hawkClient-1.0.1-ia32-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-ia32-win.exe)  |
+| Mac   | [hawkClient-1.0.1-x64-mac.dmg](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-x64-mac.dmg) |
+| Mac   | [hawkClient-1.0.1-x64-mac.zip](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-x64-mac.zip) |
+| Windows   | [hawkClient-1.0.1-x64-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-x64-win.exe) |
