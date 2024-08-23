@@ -6,10 +6,13 @@ Functions available in the script are as follows:
 
 - `hc.request.getBody()`
 - `hc.request.getUrl()`
-- `hc.request.setUrl(urlValue)`
+- `hc.request.setUrl("urlValue")`
 - `hc.request.getHeaders()`
 - `hc.request.getBodyType()`
-- `hc.request.setHeader(key, value)`
+- `hc.request.setHeader("key", "value")`
+- `hc.request.setJsonBody({})`
+- `hc.request.setMethod('value')`
+- `hc.request.getMethod()`
 
 
 ## Post Response Script
@@ -19,8 +22,8 @@ Functions available in the script are as follows:
 - `hc.response.getStatusText()`
 - `hc.response.getHeaders()`
 - `hc.response.getTimeTaken()`
-- `hc.setCollectionVariable(key, value)`
-- `hc.test(description, () => {})`
+- `hc.setCollectionVariable("key", "value")`
+- `hc.test("description", () => {})`
 
 ### Example for Test
 

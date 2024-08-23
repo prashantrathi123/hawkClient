@@ -26,8 +26,7 @@ hawkClient is a powerful tool designed to test APIs and manage collections and r
 
 | OS      | File          |
 |---------|---------------|
-| Linux | [hawkClient-1.0.1-arm64-linux.AppImage](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-arm64-linux.AppImage)  |
-| Windows   | [hawkClient-1.0.1-ia32-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-ia32-win.exe)  |
-| Mac   | [hawkClient-1.0.1-x64-mac.dmg](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-x64-mac.dmg) |
-| Mac   | [hawkClient-1.0.1-x64-mac.zip](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-x64-mac.zip) |
-| Windows   | [hawkClient-1.0.1-x64-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/hawkClient-v1.0.1/hawkClient-1.0.1-x64-win.exe) |
+| Linux | [hawkClient-1.0.2-arm64-linux.AppImage](https://github.com/prashantrathi123/hawkClient/releases/download/v1.0.2/hawkClient-1.0.2-arm64-linux.AppImage)  |
+| Mac   | [hawkClient-1.0.2-x64-mac.dmg](https://github.com/prashantrathi123/hawkClient/releases/download/v1.0.2/hawkClient-1.0.2-x64-mac.dmg) |
+| Mac   | [hawkClient-1.0.2-x64-mac.zip](https://github.com/prashantrathi123/hawkClient/releases/download/v1.0.2/hawkClient-1.0.2-x64-mac.dmg) |
+| Windows   | [hawkClient-1.0.2-x64-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/v1.0.2/hawkClient-1.0.2-x64-win.exe) |
