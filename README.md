@@ -21,24 +21,27 @@ hawkClient is a powerful tool designed to test APIs and manage collections and r
 - **Source Control**: "Source Control" tab is added to the interface, allowing you to see the Git changes in your collection files, similar to how changes are viewed in Visual Studio Code (VSCode). This makes it easier to manage and track changes directly from the application. 
 
 # hawkClient light-theme
-<img width="1728" alt="Screenshot 2024-08-31 at 12 40 33 AM" src="https://github.com/user-attachments/assets/01fcfe13-aa62-438c-bb11-0441bfb5a12c">
+<img width="1728" alt="Screenshot 2024-09-02 at 9 18 35 PM" src="https://github.com/user-attachments/assets/299995e2-1909-422c-971c-2b6c952ea9cb">
+
 
 
 # hawkClient dark-theme
-<img width="1728" alt="Screenshot 2024-08-31 at 12 39 09 AM" src="https://github.com/user-attachments/assets/3645f022-39ed-4662-946f-fa092cf59977">
+<img width="1728" alt="Screenshot 2024-09-02 at 9 17 04 PM" src="https://github.com/user-attachments/assets/407c389e-40e7-4afd-8c08-e41860c6f421">
+
 
 
 ## Installing The App
 
 | OS      | File          |
 |---------|---------------|
-| Linux | [hawkClient-1.1.0-arm64-linux.AppImage](https://github.com/prashantrathi123/hawkClient/releases/download/v1.1.0/hawkClient-1.1.0-arm64-linux.AppImage)  |
-| Mac   | [hawkClient-1.1.0-x64-mac.dmg](https://github.com/prashantrathi123/hawkClient/releases/download/v1.1.0/hawkClient-1.1.0-x64-mac.dmg) |
-| Mac   | [hawkClient-1.1.0-x64-mac.zip](https://github.com/prashantrathi123/hawkClient/releases/download/v1.1.0/hawkClient-1.1.0-x64-mac.zip) |
-| Windows   | [hawkClient-1.1.0-x64-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/v1.1.0/hawkClient-1.1.0-x64-win.exe) |
+| Linux | [hawkClient-1.1.1-arm64-linux.AppImage](https://github.com/prashantrathi123/hawkClient/releases/download/v1.1.1/hawkClient-1.1.1-arm64-linux.AppImage)  |
+| Mac   | [hawkClient-1.1.1-x64-mac.dmg](https://github.com/prashantrathi123/hawkClient/releases/download/v1.1.1/hawkClient-1.1.1-x64-mac.dmg) |
+| Mac   | [hawkClient-1.1.1-x64-mac.zip](https://github.com/prashantrathi123/hawkClient/releases/download/v1.1.1/hawkClient-1.1.1-x64-mac.zip) |
+| Windows   | [hawkClient-1.1.1-x64-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/v1.1.1/hawkClient-1.1.1-x64-win.exe) |
 
 ## Demo Video
 [hawkClient Demo](https://youtu.be/fu8xDSnUoIU?si=HF3_0gbY0L5FiBpl)
 
 ## git change(source control tab)
-<img width="1728" alt="Screenshot 2024-08-31 at 12 40 47 AM" src="https://github.com/user-attachments/assets/fc203941-5606-4e32-8843-7af36830f34a">
+<img width="1728" alt="Screenshot 2024-09-02 at 9 18 53 PM 1" src="https://github.com/user-attachments/assets/dcacaf4d-edf9-4892-92b0-2bdf613e3255">
+
