@@ -34,10 +34,10 @@ hawkClient is a powerful tool designed to test APIs and manage collections and r
 
 | OS      | File          |
 |---------|---------------|
-| Linux | [hawkClient-1.4.0-arm64-linux.AppImage](https://github.com/prashantrathi123/hawkClient/releases/download/v1.4.0/hawkClient-1.4.0-arm64-linux.AppImage)  |
-| Mac   | [hawkClient-1.4.0-x64-mac.dmg](https://github.com/prashantrathi123/hawkClient/releases/download/v1.4.0/hawkClient-1.4.0-x64-mac.dmg) |
-| Mac   | [hawkClient-1.4.0-x64-mac.zip](https://github.com/prashantrathi123/hawkClient/releases/download/v1.4.0/hawkClient-1.4.0-x64-mac.zip) |
-| Windows   | [hawkClient-1.4.0-x64-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/v1.4.0/hawkClient-1.4.0-x64-win.exe) |
+| Linux | [hawkClient-1.4.1-arm64-linux.AppImage](https://github.com/prashantrathi123/hawkClient/releases/download/v1.4.1/hawkClient-1.4.1-arm64-linux.AppImage)  |
+| Mac   | [hawkClient-1.4.1-x64-mac.dmg](https://github.com/prashantrathi123/hawkClient/releases/download/v1.4.1/hawkClient-1.4.1-x64-mac.dmg) |
+| Mac   | [hawkClient-1.4.1-x64-mac.zip](https://github.com/prashantrathi123/hawkClient/releases/download/v1.4.1/hawkClient-1.4.1-x64-mac.zip) |
+| Windows   | [hawkClient-1.4.1-x64-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/v1.4.1/hawkClient-1.4.1-x64-win.exe) |
 
 ## Demo Video
 [hawkClient Demo](https://youtu.be/fu8xDSnUoIU?si=HF3_0gbY0L5FiBpl)
