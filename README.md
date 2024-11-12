@@ -1,4 +1,3 @@
-
 <img src="https://github.com/user-attachments/assets/d9ba3ba5-6d2d-4363-8593-0fb34565e15d" alt="hawklogo512" width="100">
 
 # hawkClient
@@ -21,12 +20,14 @@ hawkClient is a powerful tool designed to test APIs and manage collections and r
 - **Source Control**: "Source Control" tab is added to the interface, allowing you to see the Git changes in your collection files, similar to how changes are viewed in Visual Studio Code (VSCode). This makes it easier to manage and track changes directly from the application. 
 
 # hawkClient light-theme
-<img width="1728" alt="Screenshot 2024-09-02 at 9 18 35 PM" src="https://github.com/user-attachments/assets/299995e2-1909-422c-971c-2b6c952ea9cb">
+<img width="1728" alt="Screenshot 2024-11-12 at 3 13 01 PM" src="https://github.com/user-attachments/assets/56c7c202-1d7b-46d9-9672-96f2b78e1521">
+
 
 
 
 # hawkClient dark-theme
-<img width="1728" alt="Screenshot 2024-09-02 at 9 17 04 PM" src="https://github.com/user-attachments/assets/407c389e-40e7-4afd-8c08-e41860c6f421">
+<img width="1728" alt="Screenshot 2024-11-12 at 3 12 50 PM" src="https://github.com/user-attachments/assets/b8681c94-b607-49cf-98be-aa51d3d78fb4">
+
 
 
 
