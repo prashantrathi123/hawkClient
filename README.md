@@ -43,7 +43,7 @@ hawkClient is a powerful tool designed to test APIs and manage collections and r
 ## Demo Video
 [hawkClient Demo](https://youtu.be/fu8xDSnUoIU?si=HF3_0gbY0L5FiBpl)
 
-## YAML Support for Request Files
+## Git Collaboration
 - HawkClient stores the requests in **yaml files** that makes it more readable and easier to share with team through git
 
 <img width="1329" alt="Screenshot 2025-03-02 at 1 21 36 PM" src="https://github.com/user-attachments/assets/ac808a56-2ada-45b6-8ac0-6e2882f07509" />
