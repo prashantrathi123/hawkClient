@@ -38,6 +38,7 @@ HawkClient is a powerful tool designed to test APIs and manage collections and r
 | OS      | File          |
 |---------|---------------|
 | Linux | [hawkClient-1.7.2-arm64-linux.AppImage](https://github.com/prashantrathi123/hawkClient/releases/download/v1.7.2/HawkClient-1.7.2-arm64-linux.AppImage)  |
+| Linux | [hawkClient-1.7.2-x86_64-linux.AppImage](https://github.com/prashantrathi123/hawkClient/releases/download/v1.7.2/HawkClient-1.7.2-x86_64-linux.AppImage)  |
 | Mac   | [hawkClient-1.7.2-x64-mac.dmg](https://github.com/prashantrathi123/hawkClient/releases/download/v1.7.2/HawkClient-1.7.2-x64-mac.dmg) |
 | Mac   | [hawkClient-1.7.2-x64-mac.zip](https://github.com/prashantrathi123/hawkClient/releases/download/v1.7.2/HawkClient-1.7.2-x64-mac.zip) |
 | Windows   | [hawkClient-1.7.2-x64-win.exe](https://github.com/prashantrathi123/hawkClient/releases/download/v1.7.2/HawkClient-1.7.2-x64-win.exe) |
