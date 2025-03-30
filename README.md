@@ -30,7 +30,9 @@ HawkClient is a powerful tool designed to test APIs and manage collections and r
 <img width="1521" alt="Screenshot 2025-03-16 at 12 14 56 PM" src="https://github.com/user-attachments/assets/df7daa4b-639c-4a27-a9bb-ccb3066f2a86" />
 
 
+## API Flows
 
+<img width="1517" alt="APIFlows" src="https://github.com/user-attachments/assets/85469d8c-9e82-4a16-a830-28b9b2d21b29" />
 
 
 ## 🖥 Installing the App  
