@@ -48,6 +48,8 @@ You can download the latest version of HawkClient from the official website:
 ## Demo Video
 [hawkClient Demo](https://youtu.be/fu8xDSnUoIU?si=HF3_0gbY0L5FiBpl)
 
+[API Flows Demo](https://youtu.be/9IqkVy_3iXc)
+
 ## Git Collaboration
 - HawkClient stores the requests in **yaml files** that makes it more readable and easier to share with team through git
 
