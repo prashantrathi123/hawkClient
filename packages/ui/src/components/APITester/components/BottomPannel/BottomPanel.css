@@ -1,0 +1,51 @@
+.bottom-panel {
+  /* background-color: #007acc;
+    color: white; */
+  padding: 0;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-panelv {
+  /* background-color: #007acc;
+    color: white; */
+  padding: 0;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.resizer {
+  height: 3px;
+  background-color: #C8CDD7;
+  cursor: row-resize;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 34;
+}
+
+.resizer:hover {
+  background-color: #5e5ee8
+}
+
+.sideResizer {
+  width: 3px;
+  background-color: #C8CDD7;
+  cursor: col-resize;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 34;
+}
+
+.sideResizer:hover {
+  background-color: #5e5ee8
+}

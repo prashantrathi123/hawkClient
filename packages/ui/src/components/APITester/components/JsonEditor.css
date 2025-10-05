@@ -1,0 +1,21 @@
+.json-editor {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    outline: none;
+    overflow: auto;
+    position: relative;
+    flex-grow: 1;
+    caret-color: blue;
+  }
+  
+  .json-editor span {
+    user-select: none;
+  }
+  
+  .json-editor:empty:before {
+    content: 'Type your JSON here';
+    color: #aaa;
+  }
+  

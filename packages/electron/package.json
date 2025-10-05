@@ -1,0 +1,43 @@
+{
+    "name": "hawkclient",
+    "description": "HawkClient, an app to test APIs",
+    "version": "1.11.1",
+    "private": true,
+    "homepage": "https://hawkclient.com",
+    "main": "main.js",
+    "author": "Prashant Rathi <prashantrathi321@gmail.com>",
+    "scripts": {
+        "electron-dev": "electron .",
+        "electron-dev-server": "electron . --server-only",
+        "dist:mac": "electron-builder --mac --config electron-builder-config.js",
+        "dist:win": "electron-builder --win --config electron-builder-config.js",
+        "dist:linux": "electron-builder --linux AppImage --config electron-builder-config.js",
+        "dist:deb": "electron-builder --linux deb --config electron-builder-config.js",
+        "dist:rpm": "electron-builder --linux rpm --config electron-builder-config.js",
+        "dist:snap": "electron-builder --linux snap --config electron-builder-config.js"
+    },
+    "dependencies": {
+        "ajv": "^6.12.0",
+        "aws4": "^1.13.0",
+        "axios": "^1.8.4",
+        "axios-ntlm": "^1.4.2",
+        "chai": "^4.5.0",
+        "chokidar": "^3.6.0",
+        "electron-util": "^0.17.2",
+        "form-data": "^4.0.2",
+        "httpsnippet": "^3.0.6",
+        "js-yaml": "^4.1.0",
+        "lodash": "^4.17.21",
+        "uuid": "^9.0.1",
+        "yaml": "^2.4.5"
+    },
+    "devDependencies": {
+        "app-builder-bin": "^4.2.0",
+        "electron": "^38.2.0",
+        "electron-builder": "^24.13.3",
+        "electron-notarize": "^1.2.2"
+    },
+    "build": {
+        "electronVersion": "21.4.4"
+    }
+}

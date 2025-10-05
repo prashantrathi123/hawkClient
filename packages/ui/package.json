@@ -1,0 +1,80 @@
+{
+    "name": "@hawkclient/ui",
+    "version": "1.11.1",
+    "private": true,
+    "author": "Prashant Rathi <prashantrathi321@gmail.com>",
+    "dependencies": {
+        "@emotion/react": "^11.13.0",
+        "@emotion/styled": "^11.13.0",
+        "@graphiql/toolkit": "^0.11.1",
+        "@mui/icons-material": "^5.16.7",
+        "@mui/lab": "^5.0.0-alpha.156",
+        "@mui/material": "5.15.0",
+        "@mui/styles": "^5.16.1",
+        "@mui/x-tree-view": "^6.17.0",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^13.0.0",
+        "@testing-library/user-event": "^13.2.1",
+        "ace-builds": "^1.34.2",
+        "ajv": "^6.12.0",
+        "axios": "^1.7.2",
+        "body-parser": "^1.20.2",
+        "chai": "^4.5.0",
+        "clsx": "^2.1.1",
+        "css-loader": "^6.7.1",
+        "graphql": "^16.10.0",
+        "graphql-language-service": "^5.3.0",
+        "graphql-ws": "^5.16.2",
+        "js-yaml": "^4.1.0",
+        "jsonlint": "^1.6.3",
+        "lodash": "^4.17.21",
+        "pdfjs-dist": "^3.11.174",
+        "prettier": "^2.8.8",
+        "prop-types": "^15.8.1",
+        "react": "^18.2.0",
+        "react-ace": "^11.0.1",
+        "react-color": "^2.19.3",
+        "react-dom": "^18.2.0",
+        "react-json-pretty": "^2.2.0",
+        "react-markdown": "^8.0.7",
+        "react-pdf": "^7.7.3",
+        "react-redux": "^8.1.2",
+        "react-router-dom": "^6.16.0",
+        "react-scripts": "5.0.1",
+        "react-syntax-highlighter": "^15.5.0",
+        "react-window": "^1.8.10",
+        "redux": "^4.2.1",
+        "remark-gfm": "^3.0.1",
+        "sass": "^1.55.0",
+        "sass-loader": "^13.0.2",
+        "web-vitals": "^2.1.0",
+        "xml-formatter": "^3.6.3",
+        "yaml": "^2.4.5"
+    },
+    "scripts": {
+        "watch": "webpack --config webpack.common.js --watch",
+        "build:renderer": "webpack --config webpack.common.js"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@types/react-syntax-highlighter": "^15.5.11",
+        "file-loader": "^6.2.0"
+    }
+}

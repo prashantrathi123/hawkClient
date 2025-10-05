@@ -1,0 +1,31 @@
+{
+  "name": "hawkclient",
+  "description": "HawkClient, an app to test APIs",
+  "version": "1.11.1",
+  "private": true,
+  "author": "Prashant Rathi <prashantrathi321@gmail.com>",
+  "workspaces": [
+    "packages/electron",
+    "packages/ui"
+  ],
+  "homepage": "https://hawkclient.com",
+  "scripts": {
+    "watch": "npm run watch -w packages/ui",
+    "electron-dev": "npm run electron-dev -w packages/electron",
+    "electron-dev-server": "npm run electron-dev-server -w packages/electron",
+    "build:renderer": "npm run build:renderer -w packages/ui",
+    "dist:mac": "npm run dist:mac -w packages/electron",
+    "dist:win": "npm run dist:win -w packages/electron",
+    "dist:linux": "npm run dist:linux -w packages/electron",
+    "dist:deb": "npm run dist:deb -w packages/electron",
+    "dist:rpm": "npm run dist:rpm -w packages/electron",
+    "dist:snap": "npm run dist:snap -w packages/electron"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^4.1.1",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "7zip-bin": "^5.2.0"
+  }
+}

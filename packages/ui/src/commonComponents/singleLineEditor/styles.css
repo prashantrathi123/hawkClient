@@ -1,0 +1,28 @@
+/* Add these styles to your CSS file */
+
+.ace_editor_single_line {
+    border: 1px solid #C8CDD7;
+    border-radius: 4px;
+    height: 41px;
+    line-height: 41px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .ace_editor_single_line:hover:not(.focused) {
+    border-color: black;
+  }
+  
+  .ace_editor_single_line.focused {
+    border: 2px solid #1976d2;
+    height: 39px;
+    line-height: 39px;
+  }
+  
+  /* styles.css */
+.ace_editor_single_line .ace_cursor {
+  visibility: hidden; /* Hide the caret by default */
+}
+
+.ace_editor_single_line.focused .ace_cursor {
+  visibility: visible; /* Show the caret when focused */
+}
