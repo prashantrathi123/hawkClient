@@ -7,7 +7,7 @@ HawkClient is a powerful tool designed to test APIs and manage collections and r
 - **Mock Server**: Create and run a mock server to simulate API responses without relying on live endpoints (by default it will run on localhost:3001 if that port is occupied it will try ports till 3010).
 - **REST, GraphQL (GQL), gRPC Support**: Test RESTful APIs, GraphQL queries/mutations and gRPC requests.
 - **Validations and Tests**: Write and run validations and tests to ensure API responses meet expected criteria.
-- **Scripts (Request and Collection Level)**: Automate workflows with scripts that can be executed at both the request and collection levels.
+- **Scripts (Request, Folder and Collection Level)**: Automate workflows with scripts that can be executed at the request, folder and collection levels.
 - **Environments**: Manage different environments (e.g., development, staging, production) and switch between them effortlessly.
 - **Variables**: Use variables at the environment, collection, and request levels to dynamically manage and manipulate data.
 - **Collection Runner**: Execute a series of API requests organized into collections.
