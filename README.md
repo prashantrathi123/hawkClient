@@ -1,4 +1,5 @@
-<img src="https://github.com/user-attachments/assets/7f78566f-140a-4af0-a75a-e43e66c90aa4" alt="hawklogo512" width="100">
+<img src="https://github.com/user-attachments/assets/53672010-21ce-4524-b724-8f889e7f0fc1" alt="HawkClientLogo" width="100"/>
+
 
 # HawkClient
 HawkClient is a powerful tool designed to test APIs and manage collections and requests with ease. It stores the collections and requests as YAML files on your local file system, making it convenient to organize, reuse, and share your API tests.
@@ -20,19 +21,20 @@ HawkClient is a powerful tool designed to test APIs and manage collections and r
 - **Source Control**: "Source Control" tab is added to the interface, allowing you to see the Git changes in your collection files, similar to how changes are viewed in Visual Studio Code (VSCode). This makes it easier to manage and track changes directly from the application. 
 
 # hawkClient light-theme
-<img width="1526" height="782" alt="Light" src="https://github.com/user-attachments/assets/4d16f386-aae7-427a-8ded-bb5dea348722" />
-
+<img width="1526" height="782" alt="Light" src="https://github.com/user-attachments/assets/1c8fa198-eb0e-49eb-bbf2-586b4ba4f325" />
 
 
 
 
 # hawkClient dark-theme
-<img width="1524" height="783" alt="Dark" src="https://github.com/user-attachments/assets/2474faac-0cf2-431e-8aa1-f4ae7ec813a6" />
+<img width="1524" height="783" alt="Dark" src="https://github.com/user-attachments/assets/d9bf2ee3-0314-47d0-ae1e-a30c3dc3bc53" />
+
 
 
 
 ## API Flows
-<img width="1490" height="797" alt="APIFlows" src="https://github.com/user-attachments/assets/552c861f-0f10-4032-9026-dc282d024059" />
+<img width="1490" height="797" alt="APIFlows" src="https://github.com/user-attachments/assets/7df4e7b1-f9c0-4d2b-8184-7ffc42e48b3b" />
+
 
 
 
