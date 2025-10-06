@@ -289,134 +289,6 @@ export const getPlaceholdersReplacedBody = (bodyType, body, variablesValues) => 
     }
 }
 
-export const convertToHar = (requestInput, variablesValues) => {
-    variablesValues = createVariablesValuesBasisPrecedence([...requestInput?.variables?.preRequest || []], variablesValues);
-    const harRequest = {
-        method: requestInput.method,
-        url: replacePlaceholders(requestInput.url, variablesValues),
-        headers: [],
-        queryString: [],
-        postData: {},
-        headersSize: -1,
-        bodySize: -1
-    };
-
-    // Convert headers
-    requestInput.headers?.forEach(header => {
-        if (header.isChecked) {
-            harRequest.headers.push({
-                name: header.key,
-                value: replacePlaceholders(header.value, variablesValues)
-            });
-        }
-    });
-
-    // Convert query parameters
-    requestInput.urlContent?.query?.forEach(param => {
-        if (param.isChecked) {
-            harRequest.queryString.push({
-                name: param.key,
-                value: replacePlaceholders(param.value, variablesValues)
-            });
-        }
-    });
-
-    // Convert postData
-    const bodyType = requestInput.bodyType;
-    if (bodyType && requestInput.body) {
-        // harRequest.postData.mimeType = `application/${bodyType == 'form-urlencoded' ? 'x-www-form-urlencoded' : bodyType}`;
-        if (bodyType === 'json') {
-            harRequest.postData.mimeType = 'application/json'
-            harRequest.postData.text = replacePlaceholders(requestInput.body.json, variablesValues);
-        } else if (bodyType === 'xml') {
-            harRequest.postData.mimeType = 'application/xml'
-            harRequest.postData.text = replacePlaceholders(requestInput.body.xml, variablesValues);
-        } else if (bodyType === 'text') {
-            harRequest.postData.mimeType = 'text/plain'
-            harRequest.postData.text = replacePlaceholders(requestInput.body.text, variablesValues);
-        } else if (bodyType === 'form-data') {
-            harRequest.postData = harRequest.postData || {}; // Ensure postData is initialized
-            harRequest.postData.mimeType = 'multipart/form-data';
-
-            harRequest.postData.params = requestInput.body['form-data']?.reduce((params, param) => {
-                if (param.type === "file") {
-                    param.value.forEach(filePath => {
-                        params.push({
-                            name: param.key,
-                            value: filePath, // This should be the file path or file content depending on the requirement
-                            contentType: param.type
-                        });
-                    });
-                } else {
-                    params.push({
-                        name: param.key,
-                        value: replacePlaceholders(param.value, variablesValues),
-                        contentType: param.type
-                    });
-                }
-                return params;
-            }, []) || [];
-            // }
-        } else if (bodyType === 'form-urlencoded') {
-            harRequest.postData.mimeType = 'application/x-www-form-urlencoded'
-            harRequest.postData.params = requestInput.body['form-urlencoded']?.map(param => ({
-                name: param.key,
-                value: replacePlaceholders(param.value, variablesValues),
-                contentType: param.type
-            })) || [];
-        } else if (bodyType === 'graphql') {
-            harRequest.postData.mimeType = 'application/json'
-            try {
-                let query = requestInput.body.graphql?.query || ""
-                let variables = requestInput.body.graphql?.variables || ""
-                variables = replacePlaceholders(variables, variablesValues)
-                let parsedVariable = {}
-                try {
-                    parsedVariable = JSON.parse(variables)
-                } catch (error) {
-
-                }
-                let tempvalgp = {
-                    query: query,
-                    variables: parsedVariable
-                }
-                harRequest.postData.text = JSON.stringify(tempvalgp);
-            } catch (error) {
-
-            }
-        } else {
-            harRequest.postData.mimeType = 'application/json'
-        }
-    } else {
-        harRequest.postData.mimeType = 'application/json'
-    }
-
-    // Add auth headers if basic auth is used
-    if (requestInput.auth && requestInput.auth?.authType === 'basic' && requestInput.auth?.basic) {
-        let username = requestInput.auth?.basic?.username || '';
-        let password = requestInput.auth?.basic?.password || '';
-        username = replacePlaceholders(username, variablesValues);
-        password = replacePlaceholders(password, variablesValues);
-        const encodedAuth = btoa(`${username}:${password}`);
-        harRequest.headers.push({
-            name: 'Authorization',
-            value: `Basic ${encodedAuth}`
-        });
-    }
-
-    // Add auth headers if bearer token is used
-    if (requestInput.auth && requestInput.auth.authType === 'bearer') {
-        let token = requestInput.auth.bearer?.find(item => item.key === 'token')?.value || '';
-        token = replacePlaceholders(token, variablesValues)
-        harRequest.headers.push({
-            name: 'Authorization',
-            value: `Bearer ${token}`
-        });
-    }
-
-    return harRequest;
-}
-
 function toBasicAuth(clientId, clientSecret) {
     const credentials = `${clientId}:${clientSecret}`;
     const base64Credentials = btoa(credentials);
@@ -491,9 +363,8 @@ export const getPlaceholdersReplacedAuth = (auth, variablesValues) => {
 
 export const prepareAPIRequest = (request, variablesValues) => {
     let headers = {};
-    // console.log("preRequestVariables", request.variables?.preRequest)
     variablesValues = createVariablesValuesBasisPrecedence(request.variables?.preRequest || [], variablesValues)
-    // console.log("variablesValues", variablesValues)
+
     request.headers.map((reqHeader, index) => {
         if (reqHeader.isChecked) {
             headers[`${replacePlaceholders(reqHeader.key, variablesValues)}`] = replacePlaceholders(reqHeader.value, variablesValues)

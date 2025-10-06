@@ -7,7 +7,6 @@ const { formatJSON } = require("../utils/jsonFormatter")
 
 const getCertificates = async (request) => {
     const { workspace } = request;
-    console.log("getCertificates request", request)
     let workSpaceData = getWorkSpaces();
 
     if (workspace == "none") {
@@ -55,7 +54,6 @@ const getCertificates = async (request) => {
 
 const addCertificates = async (request) => {
     const { workspace, caCertificate, clientCertificates } = request;
-    console.log("addCertificates request", request)
     let workSpaceData = getWorkSpaces();
 
     if (workspace == "none") {
