@@ -6,7 +6,6 @@ let executeAPI = require('./lib/APIExecution/index')
 const CollectionRequestService = require('./lib/service/CollectionRequest');
 const CollectionItemService = require('./lib/service/CollectionItemService');
 const VariablesService = require('./lib/service/VariablesService');
-const HttpSnippetService = require('./lib/service/HttpSnippetService');
 const CertificatesService = require('./lib/service/CertificatesService');
 const { v4: uuidv4 } = require("uuid");
 const { fork, exec } = require('child_process');
@@ -188,11 +187,6 @@ ipcMain.handle('deleteEnvVariables', (_, request) => {
 
 ipcMain.handle('duplicateEnvVariables', (_, request) => {
   const response = VariablesService.DuplicateEnvVariables(request);
-  return response;
-})
-
-ipcMain.handle('getHttpSnippet', (_, request) => {
-  const response = HttpSnippetService.GetHttpSnippet(request);
   return response;
 })
 

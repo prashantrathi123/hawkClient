@@ -135,12 +135,6 @@ contextBridge.exposeInMainWorld('electron', {
       });
       return response;
     },
-    getHttpSnippet: async (request) => {
-      let response = await ipcRenderer.invoke("getHttpSnippet", request).then((result) => {
-        return result;
-      });
-      return response;
-    },
     getWorkSpaces: async (request) => {
       let response = await ipcRenderer.invoke("getWorkSpaces", request).then((result) => {
         return result;

@@ -13,7 +13,6 @@ import APIResponse from '../../components/APIResponse/APIResponse.Component';
 import Authorization from '../../components/Authorization/Authorization.Component';
 import RequestBodyInput from '../../components/RequestBodyInput/RequestBodyInput.Component';
 import { HEADERS_AUTO_SUGGESTIONS } from '../../../../constants/constants';
-import CodeSnippet from '../../components/CodeSnippet/CodeSnippet.Component'
 import SingleLineEditor from '../../../../commonComponents/singleLineEditor/singleLineEditor';
 import AssertPannel from '../AssertPannel/AssertPannel.Component';
 import { ASSERT_OPERATORS } from '../../../../constants/constants';
@@ -27,7 +26,6 @@ import {
 } from '../../../../utils/utils';
 import Variables from '../Variables/Variables.Component';
 import cloneDeep from 'lodash/cloneDeep';
-import APICalls from '../APICalls/APICalls.Component';
 import { isValidFolderName } from '../../../../utils/validationUtil';
 import HttpIcon from '@mui/icons-material/Http';
 import MarkDownEditor from '../../../../commonComponents/markDownEditor/markDownEditor.Component';
@@ -284,31 +282,6 @@ function APIRequestTab(props) {
         // Mark this request as executed
         executedRequests.add(apiRequest.id);
 
-        if (apiRequest.apiCalls && (apiRequest?.apiCalls?.preRequest?.length || 0 > 0)) {
-            for (let i = 0; i < apiRequest?.apiCalls?.preRequest?.length; i++) {
-                const { condition, variable, operator, value } = apiRequest?.apiCalls?.preRequest[i]
-                let tempRequest = cloneDeep(apiRequest)
-                try {
-                    tempRequest.body = JSON.parse(replacePlaceholders(tempRequest.body[tempRequest.bodyType], createVariablesValuesBasisPrecedence(tempRequest.variables?.preRequest || [], variablesValues)));
-                    tempRequest.url = replacePlaceholders(tempRequest.url, createVariablesValuesBasisPrecedence(tempRequest.variables?.preRequest || [], variablesValues))
-                } catch (error) {
-                    tempRequest.body = {};
-                }
-                if (validateAPICall(condition, variable, operator, value, { request: { ...tempRequest } })) {
-                    let requestId = apiRequest?.apiCalls?.preRequest[i].requestId
-                    let requests = extractRequests(apiCollection[collectionId])
-                    const filteredRequest = requests.filter((req) => req.id === requestId);
-
-                    if (filteredRequest.length > 0 && requestId !== "NONE") {
-                        if (signal.aborted) {
-                            return;
-                        }
-                        const recursiveExecuteResult = await recursiveExecute(filteredRequest[0], variablesValues, variablesValuesRef, collectionId, apiCollection, requestId, signal, true, executedRequests, true)
-                        variablesValuesRef = recursiveExecuteResult.variablesValuesRef
-                    }
-                }
-            }
-        }
         if (signal.aborted) {
             return;
         }
@@ -387,30 +360,6 @@ function APIRequestTab(props) {
             dispatch({ type: "UPDATE_REQUEST_TAB_CONTENT", selectedRequest: selectedRequest, id: collectionId });
         }
 
-        if (apiRequest.apiCalls && (apiRequest?.apiCalls?.postResponse?.length || 0 > 0)) {
-            for (let i = 0; i < apiRequest?.apiCalls?.postResponse?.length; i++) {
-                const { condition, variable, operator, value } = apiRequest?.apiCalls?.postResponse[i]
-                let tempResponse = cloneDeep(result.apiResponse)
-                try {
-                    tempResponse.body = JSON.parse(tempResponse.body);
-                } catch (error) {
-                    tempResponse.body = {};
-                }
-                if (validateAPICall(condition, variable, operator, value, { response: { ...tempResponse } })) {
-                    let requestId = apiRequest?.apiCalls?.postResponse[i].requestId
-                    let requests = extractRequests(apiCollection[collectionId])
-                    const filteredRequest = requests.filter((req) => req.id === requestId);
-
-                    if (filteredRequest.length > 0 & requestId !== "NONE") {
-                        if (signal.aborted) {
-                            return;
-                        }
-                        const recursiveExecuteResult = await recursiveExecute(filteredRequest[0], variablesValues, variablesValuesRef, collectionId, apiCollection, requestId, signal, true, executedRequests, true)
-                        variablesValuesRef = recursiveExecuteResult.variablesValuesRef
-                    }
-                }
-            }
-        }
         return { variablesValuesRef };
     }
 
@@ -670,10 +619,8 @@ function APIRequestTab(props) {
                                     <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="Auth" value="3" />
                                     <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px' }} label="Params" value="5" />
                                     <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="Variables" value="8" />
-                                    <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="API-Calls" value="9" />
                                     <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="Validations" value="7" />
                                     <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="Docs" value="docs" />
-                                    <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="</>" value="4" />
                                 </Tabs>
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "1" ? 1 : 0 }} value="1">
                                     <RequestBodyInput body={selectedTabContent.request?.body || {}} handleChange={handleChange} bodyTabValue={selectedTabContent.request?.bodyType || "noBody"} requestFormUrlEncodeBody={selectedTabContent.request.bodyType == 'form-urlencoded' ? selectedTabContent.request.body?.['form-urlencoded'] ? selectedTabContent.request.body['form-urlencoded'] : [] : []} validKeys={validKeys} url={selectedTabContent?.request?.url || ""} variableValuesExcludingRequest={variableValuesExcludingRequest} />
@@ -684,9 +631,6 @@ function APIRequestTab(props) {
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "3" ? 1 : 0 }} value="3">
                                     <Authorization value={selectedTabContent.request?.auth || { authType: 'none' }} onChange={handleChange} showInherit={true} validKeys={validKeys} />
                                 </TabPanel>
-                                <TabPanel style={{ display: 'flex', flexDirection: 'column', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "4" ? 1 : 0 }} value="4">
-                                    <CodeSnippet request={selectedTabContent.request} variablesValues={createVariablesValues(cloneDeep(variables.selectedEnv), cloneDeep(variables.envVariables), cloneDeep(variables.globalVariables), cloneDeep(TabsContent[cloneDeep(selectedTabContent).collectionName]?.collectionVariables || (apiCollection[cloneDeep(selectedTabContent).collectionName]?.collectionVariables || [])))} />
-                                </TabPanel>
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "5" ? 1 : 0 }} value="5">
                                     <Typography style={{ fontSize: '15px' }}>Query Params</Typography>
                                     <KeyValueInput language='customtext' value={selectedTabContent.request?.urlContent?.query || []} onValueChange={(value) => handleChange({ target: { value: { ...(selectedTabContent.request?.urlContent || {}), query: value } } }, 'urlContent')} validKeys={validKeys} />
@@ -696,9 +640,6 @@ function APIRequestTab(props) {
                                 </TabPanel>
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "8" ? 1 : 0 }} value="8">
                                     <Variables value={selectedTabContent.request.variables || { preRequest: '', postResponse: '' }} onChange={(value) => handleChange({ target: { value: value } }, 'variables')} validKeys={validKeys} />
-                                </TabPanel>
-                                <TabPanel style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "9" ? 1 : 0 }} value="9">
-                                    <APICalls apiCollection={apiCollection} collectionId={selectedTabContent?.collectionName} value={selectedTabContent.request.apiCalls || { preRequest: [], postResponse: [] }} onChange={(value) => handleChange({ target: { value: value } }, 'apiCalls')} />
                                 </TabPanel>
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', overflowY: 'scroll', alignItems: 'flex-start', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "docs" ? 1 : 0, width: requestTabValue == "docs" ? '100%' : '0%' }} value="docs">
                                     <MarkDownEditor markdownText={selectedTabContent.request?.docs || []} handleInputChange={handleChange} />

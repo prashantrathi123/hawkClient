@@ -12,7 +12,6 @@ const requestJsonKeyOrder = [
     "script",
     "variables",
     "validation",
-    "apiCalls"
 ];
 
 const requestFieldsToSpace = new Set(["method", "url", "urlContent", "body"]);
