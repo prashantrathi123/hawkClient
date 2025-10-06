@@ -57,7 +57,8 @@ You can download the latest version of HawkClient from the official website:
 ## Git Collaboration
 - HawkClient stores the requests in **yaml files** that makes it more readable and easier to share with team through git
 
-<img width="1329" alt="Screenshot 2025-03-02 at 1 21 36 PM" src="https://github.com/user-attachments/assets/ac808a56-2ada-45b6-8ac0-6e2882f07509" />
+<img width="1329" height="696" alt="Git Collaboration" src="https://github.com/user-attachments/assets/10ae4696-0ceb-4390-bc0d-5af8fa89a5d4" />
+
 
 ## License
 
