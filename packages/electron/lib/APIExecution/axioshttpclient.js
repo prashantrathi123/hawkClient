@@ -211,11 +211,11 @@ async function makeHttpCall(url, method = 'GET', data = null, headers = {}, body
     if (axiosConfig.ntlm) {
 
       axiosInstance = NtlmClient({
-      username: ntlmAuth.username,
-      password: ntlmAuth.password,
-      domain: ntlmAuth.domain || '',
-      workstation: ntlmAuth.workstation || ''
-    }, axiosInstance.defaults);
+        username: ntlmAuth.username,
+        password: ntlmAuth.password,
+        domain: ntlmAuth.domain || '',
+        workstation: ntlmAuth.workstation || ''
+      }, axiosInstance.defaults);
 
       delete axiosConfig.ntlm
     }
@@ -237,13 +237,22 @@ async function makeHttpCall(url, method = 'GET', data = null, headers = {}, body
       responseSizeKB: `${(Buffer.byteLength(response.data) / 1024).toFixed(2)} KB`
     };
   } catch (error) {
-    const response = error.response;
+    let actualError = error;
+    let errorMessage = error.message;
+
+    if (Array.isArray(error.errors) && error.errors.length > 0) {
+      const firstErr = error.errors[0]; // simplified — pick the first one
+      actualError = firstErr || error;
+      errorMessage = firstErr?.message || error.message;
+    }
+
+    const response = actualError.response;
     const endTime = Date.now(); // End timing
     return {
       status: response ? response.status : 500,
       statusText: response ? response.statusText : 'Internal Server Error',
       headers: response ? response.headers : {},
-      data: response ? convertResponseDataToString(response.data) : error.message,
+      data: response ? convertResponseDataToString(response.data) : errorMessage,
       cookies: [],
       timeTaken: endTime - startTime + 'ms',
       responseSizeKB: '0 KB'

@@ -8,7 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import styles from './AssertPannel.Style'
+import styles from './ValidationPannel.Style'
 import SingleLineEditor from '../../../../commonComponents/singleLineEditor/singleLineEditor';
 import { useTheme } from '@mui/material/styles';
 
@@ -26,7 +26,7 @@ const StyledTableCell = ({ children, withDivider, ...props }) => {
     )
 };
 
-function AssertPannel(props) {
+function ValidationPannel(props) {
     const classes = styles()
     const { value, onChange, autoSuggestions, style, type, language } = props;
     const [requestHeaders, setReqHeaders] = useState([]);
@@ -171,11 +171,11 @@ function AssertPannel(props) {
     );
 }
 
-AssertPannel.defaultProps = {
+ValidationPannel.defaultProps = {
     value: [],
     autoSuggestions: null,
     type: 'text',
     language: 'text',
 };
 
-export default AssertPannel;
+export default ValidationPannel;

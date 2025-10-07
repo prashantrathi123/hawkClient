@@ -1,148 +1,7 @@
 import { executeAPI } from "../services/executeAPI";
 import { updateCollectionContent } from "../services/duplicateCollectionItem"
 import cloneDeep from 'lodash/cloneDeep';
-import { expect } from 'chai';
 import { updateEnvVariables, addGlobalVariables } from "../services/variablesService";
-
-const operatorValidation = (operator, actualValue, expectedValue) => {
-    let pass = true;
-    let error = "";
-    try {
-        switch (operator) {
-            case 'isGreaterThan':
-                expect(Number(actualValue)).to.be.greaterThan(Number(expectedValue));
-                break;
-            case 'isGreaterThenOrEqual':
-                expect(Number(actualValue)).to.be.at.least(Number(expectedValue));
-                break;
-            case 'isEqualTo':  // handle the legacy "equal" operator
-                expect(actualValue.toString()).to.equal(expectedValue);
-                break;
-            case 'isNotEqualTo':
-                expect(actualValue.toString()).to.not.equal(expectedValue);
-                break;
-            case 'isLessThen':
-                expect(Number(actualValue)).to.be.lessThan(Number(expectedValue));
-                break;
-            case 'isLessThenOrEqual':
-                expect(Number(actualValue)).to.be.at.most(Number(expectedValue));
-                break;
-            case 'in':
-                expect(expectedValue).to.include(actualValue);
-                break;
-            case 'notIn':
-                expect(expectedValue).to.not.include(actualValue);
-                break;
-            case 'contains':
-                expect(actualValue).to.include(expectedValue);
-                break;
-            case 'notContains':
-                expect(actualValue).to.not.include(expectedValue);
-                break;
-            case 'startWith':
-                if (typeof actualValue === 'string' && typeof expectedValue === 'string') {
-                    pass = actualValue.startsWith(expectedValue);
-                    if (!pass) throw new Error(`${actualValue} does not start with ${expectedValue}`);
-                } else {
-                    throw new Error(`Both actualValue and expectedValue must be strings`);
-                }
-                break;
-            case 'endWith':
-                if (typeof actualValue === 'string' && typeof expectedValue === 'string') {
-                    pass = actualValue.endsWith(expectedValue);
-                    if (!pass) throw new Error(`${actualValue} does not end with ${expectedValue}`);
-                } else {
-                    throw new Error(`Both actualValue and expectedValue must be strings`);
-                }
-                break;
-            case 'matchesRegex':
-                expect(actualValue).to.match(new RegExp(expectedValue));
-                break;
-            case 'notMatchesRegex':
-                expect(actualValue).to.not.match(new RegExp(expectedValue));
-                break;
-            case 'between':
-                const [min, max] = expectedValue.split(',').map(Number);
-                expect(Number(actualValue)).to.be.within(min, max);
-                break;
-            case 'notBetween':
-                const [minValue, maxValue] = expectedValue.split(',').map(Number);
-                expect(Number(actualValue)).to.not.be.within(minValue, maxValue);
-                break;
-            case 'isEmpty':
-                expect(actualValue.length).to.equal(0);
-                break;
-            case 'isUnDefined':
-                expect(actualValue).to.be.undefined;
-                break;
-            case 'isNull':
-                expect(actualValue).to.be.null;
-                break;
-            case 'isTrue':
-                expect(actualValue).to.be.true;
-                break;
-            case 'isFalse':
-                expect(actualValue).to.be.false;
-                break;
-            case 'isTypeOf':
-                expect(typeof actualValue).to.equal(expectedValue);
-                break;
-            case 'isInstanceOf':
-                expect(actualValue).to.be.instanceOf(global[expectedValue]);
-                break;
-            case 'isArray':
-                expect(actualValue).to.be.an('array');
-                break;
-            case 'isObject':
-                expect(actualValue).to.be.an('object').and.not.an('array').and.not.null;
-                break;
-            case 'isString':
-                expect(actualValue).to.be.a('string');
-                break;
-            case 'isNumber':
-                expect(actualValue).to.be.a('number');
-                break;
-            case 'isBoolean':
-                expect(actualValue).to.be.a('boolean');
-                break;
-            case 'hasLength':
-                expect(actualValue.length).to.equal(Number(expectedValue));
-                break;
-            default:
-                pass = false;
-                error = `Unknown operator: ${operator}`;
-        }
-    } catch (err) {
-        pass = false;
-        error = err.message;
-    }
-
-    return { pass, error };
-}
-
-export const evaluateAssertions = (response, asserts) => {
-    let tempResponse = { ...response };
-    const results = asserts.map(assert => {
-        if (!assert.isChecked) {
-            return { ...assert, result: 'unchecked' };
-        }
-
-        try {
-            tempResponse.response.body = JSON.parse(tempResponse.response.body);
-        } catch (error) {
-            // console.log("error response.body")
-        }
-        const actualValue = getValueByPath(tempResponse, assert.assertVar);
-        const expectedValue = assert.value;
-        const operator = assert.operator;
-        // console.log("actualValue", actualValue, "expectedValue", expectedValue);
-        let { pass, error } = operatorValidation(operator, actualValue, expectedValue);
-
-        return { ...assert, success: pass, error };
-    });
-
-    return results;
-}
 
 export const getValueByPath = (obj, path) => {
     try {
@@ -287,12 +146,6 @@ export const getPlaceholdersReplacedBody = (bodyType, body, variablesValues) => 
         default:
             return tempBody
     }
-}
-
-function toBasicAuth(clientId, clientSecret) {
-    const credentials = `${clientId}:${clientSecret}`;
-    const base64Credentials = btoa(credentials);
-    return `Basic ${base64Credentials}`;
 }
 
 // function to calculate variables giving high precedence to highPrecedencVariables in case of conflict with lowPrecedencVariables
@@ -483,7 +336,6 @@ export const handleExecute = async (request, variablesValues, collectionId, apiC
     requesta.globalVariables = globalVariables || []
     requesta.envVariables = envVariables || []
     requesta.collectionVariables = apiCollection[collectionId]?.collectionVariables || []
-    requesta.collectionObject = apiCollection[collectionId]
 
     const resp = await executeAPI({ payload: requesta, signal })
 
@@ -588,46 +440,5 @@ export const handleExecute = async (request, variablesValues, collectionId, apiC
         testResults: postScriptResult?.testResults || [],
         globalVariables: globalVariablesResp,
         envVariables: envVariablesResp
-    }
-}
-
-export const extractRequests = (data) => {
-    // Initialize an array to hold all requests
-    let allRequests = [];
-
-    // Add the main requests array to allRequests
-    if (Array.isArray(data.requests)) {
-        allRequests = [...data.requests];
-    }
-
-    // Helper function to recursively extract requests from nested items
-    function extractFromItems(items) {
-        for (const itemKey in items) {
-            if (items[itemKey].requests && Array.isArray(items[itemKey].requests)) {
-                allRequests = [...allRequests, ...items[itemKey].requests];
-            }
-            if (items[itemKey].items) {
-                extractFromItems(items[itemKey].items);
-            }
-        }
-    }
-
-    // Start the recursive extraction from the top-level items
-    if (data.items) {
-        extractFromItems(data.items);
-    }
-
-    return allRequests;
-}
-
-export const validateAPICall = (condition, variable, operator, value, parameterObject = {}) => {
-
-    if (condition == "ALWAYS") {
-        return true
-    } else {
-        const actualValue = getValueByPath(parameterObject, variable || "");
-        let expectedValue = value;
-        let { pass, error } = operatorValidation(operator, actualValue, expectedValue);
-        return pass
     }
 }

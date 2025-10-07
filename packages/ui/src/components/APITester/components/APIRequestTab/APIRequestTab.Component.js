@@ -14,15 +14,12 @@ import Authorization from '../../components/Authorization/Authorization.Componen
 import RequestBodyInput from '../../components/RequestBodyInput/RequestBodyInput.Component';
 import { HEADERS_AUTO_SUGGESTIONS } from '../../../../constants/constants';
 import SingleLineEditor from '../../../../commonComponents/singleLineEditor/singleLineEditor';
-import AssertPannel from '../AssertPannel/AssertPannel.Component';
+import ValidationPannel from '../ValidationPannel/ValidationPannel.Component';
 import { ASSERT_OPERATORS } from '../../../../constants/constants';
 import {
     createVariablesValues,
     createVariablesValuesBasisPrecedence,
-    handleExecute,
-    extractRequests,
-    validateAPICall,
-    replacePlaceholders
+    handleExecute
 } from '../../../../utils/utils';
 import Variables from '../Variables/Variables.Component';
 import cloneDeep from 'lodash/cloneDeep';
@@ -636,7 +633,7 @@ function APIRequestTab(props) {
                                     <KeyValueInput language='customtext' value={selectedTabContent.request?.urlContent?.query || []} onValueChange={(value) => handleChange({ target: { value: { ...(selectedTabContent.request?.urlContent || {}), query: value } } }, 'urlContent')} validKeys={validKeys} />
                                 </TabPanel>
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "7" ? 1 : 0 }} value="7">
-                                    <AssertPannel language='text' autoSuggestions={ASSERT_OPERATORS} value={selectedTabContent.request?.validation || selectedTabContent.request?.assert || []} onChange={(value) => handleChange({ target: { value: value } }, 'validation')} />
+                                    <ValidationPannel language='text' autoSuggestions={ASSERT_OPERATORS} value={selectedTabContent.request?.validation || selectedTabContent.request?.assert || []} onChange={(value) => handleChange({ target: { value: value } }, 'validation')} />
                                 </TabPanel>
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "8" ? 1 : 0 }} value="8">
                                     <Variables value={selectedTabContent.request.variables || { preRequest: '', postResponse: '' }} onChange={(value) => handleChange({ target: { value: value } }, 'variables')} validKeys={validKeys} />
