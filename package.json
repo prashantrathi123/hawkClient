@@ -12,7 +12,6 @@
   "scripts": {
     "watch": "npm run watch -w packages/ui",
     "electron-dev": "npm run electron-dev -w packages/electron",
-    "electron-dev-server": "npm run electron-dev-server -w packages/electron",
     "build:renderer": "npm run build:renderer -w packages/ui",
     "dist:mac": "npm run dist:mac -w packages/electron",
     "dist:win": "npm run dist:win -w packages/electron",
