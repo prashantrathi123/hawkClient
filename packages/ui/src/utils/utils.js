@@ -433,11 +433,9 @@ export const handleExecute = async (request, variablesValues, collectionId, apiC
 
 
     return {
-        assertResults: postScriptResult?.validationsResults || [],
         collectionResponse: collectionResp,
         apiResponse: resp,
         collectionVar: collectionVar,
-        testResults: postScriptResult?.testResults || [],
         globalVariables: globalVariablesResp,
         envVariables: envVariablesResp
     }

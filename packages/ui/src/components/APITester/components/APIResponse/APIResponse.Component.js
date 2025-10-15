@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Grid, Typography, Tab, Tabs, Box, CircularProgress, Button } from '@mui/material';
 import { TabContext, TabPanel, TabList } from '@mui/lab';
 import CodeEditor from '../../../../commonComponents/codeEditor/codeEditor';
-import TestResults from '../TestResultsPannel/TestResultsPannel.Component';
 import { useTheme } from '@mui/material/styles';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
@@ -197,7 +196,6 @@ function APIResponse(props) {
                         <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px' }} label="Preview" value="5" />
                         <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px' }} label={`Headers ${Object.keys(response?.headers || {}).length || 0}`} value="2" />
                         <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px' }} label={`Cookies ${response.cookies?.length || 0}`} value="3" />
-                        <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px' }} label="Test Results" value="4" />
                     </Tabs>
                     <Button sx={{ display: showSaveResponseButton ? 'flex' : 'none', fontSize: '12px', textTransform: 'none' }} disabled={isResponseLoading || response?.statusText?.length == 0 || response.statusText == undefined} onClick={() => saveResponse()}>Save Response</Button>
                 </Box>
@@ -227,15 +225,6 @@ function APIResponse(props) {
                         <Typography>Loading...</Typography>
                     </Box> :
                     <CodeEditor style={{ border: '1px solid #C8CDD7', boxSizing: 'border-box', borderRadius: '4px' }} isEditable={false} onChange={() => { }} value={JSON.stringify(response.cookies, null, "\t")} language={'json'} />
-                }
-            </TabPanel>
-            <TabPanel style={{ padding: isTwoPane ? "0px 2px 0px 5px" : "0px 2px 2px 2px", marginTop: "0px", flexGrow: responseTabValue == "4" ? 1 : 0 }} value="4">
-                {isResponseLoading ?
-                    <Box style={{ display: 'flex', flexDirection: 'column', border: '1px solid', borderColor: theme.palette.divider, boxSizing: 'border-box', borderRadius: '4px', height: '100%', width: '100%', boxSizing: 'border-box', justifyContent: 'center', alignItems: 'center' }}>
-                        <CircularProgress />
-                        <Typography>Loading...</Typography>
-                    </Box> :
-                    <TestResults testResults={testResults} />
                 }
             </TabPanel>
             <TabPanel style={{ padding: isTwoPane ? "0px 2px 0px 5px" : "0px 2px 2px 2px", marginTop: "0px", flexGrow: responseTabValue == "5" ? 1 : 0 }} value="5">

@@ -1,6 +1,5 @@
 let constants = require('../constants/constants')
 let axioshttpClient = require("./axioshttpclient")
-const { evaluateValidations } = require("../utils/validationUtil");
 const { prepareAPIRequest, getPlaceholdersReplacedAuth, createVariablesValuesBasisPrecedence, createVariablesValues } = require("../utils/prepareAPIRequest");
 
 function toBasicAuth(clientId, clientSecret) {
@@ -94,23 +93,14 @@ const executeAPI = async (request) => {
       responseSizeKB: response.responseSizeKB,
     }
 
-    // process validations on response
-    let validationsResults = [];
-    try {
-      validationsResults = evaluateValidations({ response: { ...filteredResponse } }, validation || []);
-    } catch (error) {
-      console.error("error while running the validations on response", error);
-    }
-
     filteredResponse.postScriptResponse = {
-      request,
-      validationsResults
+      request
     }
     filteredResponse = removeNonSerializable(filteredResponse)
 
     return filteredResponse
   } catch (error) {
-    return { body: `{"error": "${error.message}"}`, timeTaken: "0ms", responseSizeKB: "0 KB", logs: [], statusText: '', postScriptResponse: { logs: [], validationsResults: [], request: {} }, headers: {}, cookies: [] }
+    return { body: `{"error": "${error.message}"}`, timeTaken: "0ms", responseSizeKB: "0 KB", logs: [], statusText: '', postScriptResponse: { logs: [], request: {} }, headers: {}, cookies: [] }
   }
 }
 

@@ -14,8 +14,6 @@ import Authorization from '../../components/Authorization/Authorization.Componen
 import RequestBodyInput from '../../components/RequestBodyInput/RequestBodyInput.Component';
 import { HEADERS_AUTO_SUGGESTIONS } from '../../../../constants/constants';
 import SingleLineEditor from '../../../../commonComponents/singleLineEditor/singleLineEditor';
-import ValidationPannel from '../ValidationPannel/ValidationPannel.Component';
-import { ASSERT_OPERATORS } from '../../../../constants/constants';
 import {
     createVariablesValues,
     createVariablesValuesBasisPrecedence,
@@ -616,7 +614,6 @@ function APIRequestTab(props) {
                                     <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="Auth" value="3" />
                                     <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px' }} label="Params" value="5" />
                                     <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="Variables" value="8" />
-                                    <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="Validations" value="7" />
                                     <Tab style={{ fontFamily: "Noto Sans", textTransform: "none", minWidth: "0px", margin: '0px 10px', padding: '0px', display: selectedTabContent.type == "REQUEST_EXAMPLE" ? 'none' : 'flex' }} label="Docs" value="docs" />
                                 </Tabs>
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "1" ? 1 : 0 }} value="1">
@@ -631,9 +628,6 @@ function APIRequestTab(props) {
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "5" ? 1 : 0 }} value="5">
                                     <Typography style={{ fontSize: '15px' }}>Query Params</Typography>
                                     <KeyValueInput language='customtext' value={selectedTabContent.request?.urlContent?.query || []} onValueChange={(value) => handleChange({ target: { value: { ...(selectedTabContent.request?.urlContent || {}), query: value } } }, 'urlContent')} validKeys={validKeys} />
-                                </TabPanel>
-                                <TabPanel style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "7" ? 1 : 0 }} value="7">
-                                    <ValidationPannel language='text' autoSuggestions={ASSERT_OPERATORS} value={selectedTabContent.request?.validation || selectedTabContent.request?.assert || []} onChange={(value) => handleChange({ target: { value: value } }, 'validation')} />
                                 </TabPanel>
                                 <TabPanel style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "0px 2px", marginTop: "0px", position: "relative", flexGrow: requestTabValue == "8" ? 1 : 0 }} value="8">
                                     <Variables value={selectedTabContent.request.variables || { preRequest: '', postResponse: '' }} onChange={(value) => handleChange({ target: { value: value } }, 'variables')} validKeys={validKeys} />
