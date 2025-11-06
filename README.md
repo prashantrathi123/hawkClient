@@ -11,7 +11,7 @@ HawkClient is a powerful tool designed to test APIs and manage collections and r
 - **Environments**: Manage different environments (e.g., development, staging, production) and switch between them effortlessly.
 - **Variables**: Use variables at the environment, collection, and request levels to dynamically manage and manipulate data.
 - **Collection Runner**: Execute a series of API requests organized into collections.
-- **Flow Creation**: Design and execute complex flows that involve multiple API calls, with conditional logic and branching.
+- **Flow Creation**: Design and execute complex flows through drag and drop ui that involve multiple API calls, with conditional logic and branching.
 - **Pre-request and Post-response Hooks**: Customize API calls with scripts that run before a request is sent or after a response is received.
 - **Code Snippet Generation**: Automatically generate code snippets for API requests in various programming languages.
 - **Swagger/OpenAPI Support**: Import and manage Swagger/OpenAPI specifications at the collection level for comprehensive API documentation and testing.

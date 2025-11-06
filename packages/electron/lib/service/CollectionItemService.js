@@ -9,7 +9,6 @@ const { updateCollectionsConfig, getCollectionsConfig } = require("../database/C
 const { getWorkSpaces } = require("../database/WorkSpacesDatabase")
 const cloneDeep = require('lodash/cloneDeep');
 let { window } = require("../constants/constants");
-let { addWatcher } = require("../watcher/watcher");
 const { convertPostmanToHawkClient } = require("../utils/postmanToHawkClient");
 const { hawkClientToPostman } = require("../utils/hawkClientToPostman");
 const { formatJSON, collectionFieldsToAvoidSpace, collectionJsonKeyOrder, replaceJsonWithYamlExtension, convertJsonToYaml, convertYamlToJson, requestJsonKeyOrder, reOrderJSONObject } = require("../utils/jsonFormatter")
@@ -213,19 +212,6 @@ const duplicateCollectionItem = async (request) => {
                 updateCollectionsConfig({
                     collectionsConfig: collectionsConfig
                 })
-                try {
-                    if (workspace != null) {
-
-                        let item = {
-                            path: directoryPath,
-                            workspace: workspace
-                        }
-                        let isInitializing = false;
-                        addWatcher(item, window.win, () => isInitializing)
-                    }
-                } catch (error) {
-                    console.log("error while addwatcher in collection duplicate", error)
-                }
             }
             const collectionFolderPath = path.join(itemLocation, name);
 
@@ -412,19 +398,6 @@ const addCollectionItem = async (request) => {
                 updateCollectionsConfig({
                     collectionsConfig: collectionsConfig
                 })
-                try {
-                    if (workspace != null) {
-
-                        let item = {
-                            path: directoryPath,
-                            workspace: workspace
-                        }
-                        let isInitializing = false;
-                        addWatcher(item, window.win, () => isInitializing)
-                    }
-                } catch (error) {
-                    console.log("error while addwatcher in collection create", error)
-                }
             }
             const collectionFolderPath = path.join(itemLocation, name);
 
@@ -666,20 +639,6 @@ const linkCollection = async (request) => {
             collectionsConfig: collectionsConfig
         })
 
-        try { // add watcher for new directory of collection
-            if (workspace != null) {
-
-                let item = {
-                    path: updatedPath,
-                    workspace: workspace
-                }
-                let isInitializing = false;
-                addWatcher(item, window.win, () => isInitializing)
-            }
-        } catch (error) {
-            console.log("error while addwatcher in collection link", error)
-        }
-
     }
 
     apiTesterCollectionJson = getAllCollectionData(workspace);
@@ -731,19 +690,6 @@ const postmanCollectionToHawkCollectionItem = async (request) => {
                 updateCollectionsConfig({
                     collectionsConfig: collectionsConfig
                 })
-                try {
-                    if (workspace != null) {
-
-                        let item = {
-                            path: directoryPath,
-                            workspace: workspace
-                        }
-                        let isInitializing = false;
-                        addWatcher(item, window.win, () => isInitializing)
-                    }
-                } catch (error) {
-                    console.log("error while addwatcher in collection duplicate", error)
-                }
             }
             const collectionFolderPath = path.join(itemLocation, name);
 

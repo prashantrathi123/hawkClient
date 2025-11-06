@@ -12,7 +12,6 @@ const { fork, exec } = require('child_process');
 const { getAllCollectionData } = require("./lib/database/ItemsDatabase");
 const { GetWorkSpaces, AddWorkSpaces } = require("./lib/service/WorkSpacesService")
 const { dialog } = require('electron');
-const { watchFolders } = require("./lib/watcher/watcher")
 
 const SettingsService = require('./lib/service/SettingsService');
 const { setContentSecurityPolicy } = require('electron-util');
@@ -33,7 +32,6 @@ const contentSecurityPolicy = [
 ];
 
 setContentSecurityPolicy(contentSecurityPolicy.join(';') + ';');
-let isInitializing = true;
 let serverProcess;
 
 function createWindow() {
@@ -63,8 +61,6 @@ function createWindow() {
     }
     return { action: "allow" };
   });
-
-  watchFolders(win, () => isInitializing);
 
   win.on('closed', function () {
     win = null;
