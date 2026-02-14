@@ -59,6 +59,13 @@ You can download the latest version of HawkClient from the official website:
 
 <img width="1329" height="696" alt="Git Collaboration" src="https://github.com/user-attachments/assets/10ae4696-0ceb-4390-bc0d-5af8fa89a5d4" />
 
+## Inbuilt git GUI
+
+<img width="1591" height="875" alt="Screenshot 2026-02-12 at 11 07 11 AM" src="https://github.com/user-attachments/assets/a547f12c-37a5-45ee-85c4-57ed6800c8f8" />
+<img width="1724" height="1079" alt="Screenshot 2026-02-12 at 10 57 00 AM" src="https://github.com/user-attachments/assets/d0907d79-14d6-4fb5-956a-73dd6566dcc6" />
+
+
+
 
 ## License
 
